@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTools</title>
+    <style>
+        h4 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h3>练习：Trees</h3>
+    <ol>
+        <li><a href="/tree.html">示例1</a>：画出该页面的 DOM 树、CSSOM 树、RenderTree</li>
+        <li><a href="/tree-body.html">示例2</a>：再试试这个</li>
+    </ol>
+
+    <h3>演示：Hello World+</h3>
+    <ol>
+        <li>
+            <a href="/hello-plaintext.html">纯 Hello World</a>
+        </li>
+        <li>
+            <h4>内联 &lt;style&gt; &lt;script&gt;</h4>
+            <ol>
+                <li>
+                    <a href="/hello-inline.html">内联一</a>：简易版
+                </li>
+                <li>
+                    <a href="/hello-inline-large.html">内联二</a>：文件过大
+                </li>
+                <li>
+                    <a href="/hello-inline-large-source.html">内联三</a>：：文件特别特别大<br/>
+                    若网络不分段－导致首屏白屏时间过长；<br/>
+                    若网络有分段：此时后到来的CSS可能导致页面样式抖动（在Chrome的63beta版的开发者工具里，response 默认 `Transfer-Encoding: chunked`，可下载该版本体验下。就不用服务器端支持了）
+                </li>
+            </ol>
+        </li>
+        <li>
+            <a href="/hello-js.html">外链 JS</a>    
+        </li>
+        <li>
+            <a href="/hello-css.html">外链 CSS</a> 
+        </li>
+    </ol>
+
+    <h3>其它</h3>
+    <ul>
+        <a href="/render.html">看 Layers</a>：More tools / Layers
+    </ul>
+</body>
+</html>

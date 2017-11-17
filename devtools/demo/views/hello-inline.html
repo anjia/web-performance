@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTools</title>
+    <script>
+        console.log('log: in head, before style');
+    </script>
+    <style>
+        body {
+            font-size: 16px;
+        }
+        p {
+            font-weight: bold;
+        }
+        span {
+            color: red;
+            font-size: 25px;
+        }
+        p span {
+            display: none;
+        }
+        img {
+            float: right;
+        }
+    </style>
+    <script>
+        console.log('log: in head, after style');
+    </script>
+</head>
+<body>
+    内联 &lt;style&gt; &lt;script&gt;<span style="display:none;">Hello World</span>：简易版
+
+    <script>
+        console.log('log: before body');
+    </script>
+    <style>
+        table {
+            width: 100%;
+        }
+    </style>
+</body>
+</html>
