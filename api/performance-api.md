@@ -1,22 +1,13 @@
 # Performance API
 
-## 介绍
+## 1. 介绍
 
 [High Resolution Time](https://www.w3.org/TR/hr-time/) 标准定义了 [Performance](https://developer.mozilla.org/zh-CN/docs/Web/API/Performance) 接口，利用该接口可以在应用程序的客户端测量延迟。该接口之所以叫 high resolution，是因为它能精确到千分之一毫秒。Performance API 定义了一个 DOMHighResTimeStamp 类型，而没用 Date.now() 接口。
 
-`var myTime = window.performance.now();`就能得到 DOMHighResTimeStamp 类型的时间。这里多说几句，之前想获取页面的性能数据，是在内联脚本里这么写的：
-```javascript
-var start = Date.now();
-//....
-console.log("Page load took " + (Date.now() - start) + "milliseconds");
-```
-但[用`Data.now()`测量是有局限性且不可靠的](https://www.html5rocks.com/en/tutorials/webperformance/basics/)，原因是：
-- 统计代码在页面里，它本身会影响页面的加载，进而影响统计到的时间（Navigation Timing API 可以在页面加载完毕之后执行的，不影响进程）
-- JS 的时间是不精确的
-- 不能计算网络延时，诸如DNS解析、重定向、服务器返回等
 
+## window.performance
 
-`window.performance`即可得到 Performance API，它有：
+`window.performance` 即可得到 Performance API，它有：
 
 两个方法：
 - `now()`：返回一个 DOMHighResTimeStamp，其值取决于 navigation start 和 scope（可以是 window/worker）
@@ -27,6 +18,18 @@ console.log("Page load took " + (Date.now() - start) + "milliseconds");
 - `timing`：页面的加载数据，类型是 PerformanceTiming
 
 ![](../imgs/20171205-performance-api.png)
+
+
+`window.performance.now()`就能得到 DOMHighResTimeStamp 类型的时间。这里多说几句，之前想获取页面的性能数据，是在内联脚本里这么写的：
+```javascript
+var start = Date.now();
+//....
+console.log("Page load took " + (Date.now() - start) + "milliseconds");
+```
+但用`Data.now()`测量是有局限性且不可靠的，[原因](https://www.html5rocks.com/en/tutorials/webperformance/basics/)是：
+- 统计代码在页面里，它本身会影响页面的加载，进而影响统计到的时间（Navigation Timing API 可以在页面加载完毕之后执行的，不影响进程）
+- JS 的时间是不精确的
+- 不能计算网络延时，诸如DNS解析、重定向、服务器返回等
 
 
 ## [PerformanceNavigation](https://www.w3.org/TR/navigation-timing/#performancenavigation) 接口
@@ -77,7 +80,7 @@ console.log("Page load took " + (Date.now() - start) + "milliseconds");
 
 
 
-## 如何使用
+## 2. 如何使用
 ### 获取当前页面
 
 直接访问 `window.performance.timing` 通过计算便可得到响应的时间。eg.
